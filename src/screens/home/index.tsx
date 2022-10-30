@@ -1,3 +1,4 @@
+import { useState } from "react";
 import React from "react"
 import { Text, TextInput, TouchableOpacity, View, FlatList, Alert } from "react-native"
 import { styles } from "./styles"
@@ -5,20 +6,21 @@ import { styles } from "./styles"
 import { Participant } from "../../components/Participant";
 
 export function Home(){
-  const participants = [
+  const [participants, setParticipants] = useState(['João'])
+
+ /* const participants = [
     'Tomás Franco', 'Ingrid Flores', 'João Nunes',
     'Ana Raquel Paz', 'Sylvia Franco Carvalho',
     'Edelvira Cristina Franco Aires', 'Afonso Aires Carvalho Filho',
     'Liah Paz', 'Natalie Paz', 'Luiz Eduardo Franco',
-  'Janaina Silveira', 'Thaina Pettene', 'Isabella Aires']
+  'Janaina Silveira', 'Thaina Pettene', 'Isabella Aires']*/
 
 function handleParticipantAdd() {
   if(participants.includes("Tomás Franco")){
     return Alert.alert("Prestadora na Lista", "Esta prestadora já está na lista")
   }
 
-
-  console.log("Você clicou no botão de Adicionar!")
+  setParticipants(prevState => [...prevState, 'Ana']);
 }
 function handleParticipantRemove(name: string) {
   Alert.alert("Atenção - Remover", `Você tem certeza que deseja remover ${name}?`, [
