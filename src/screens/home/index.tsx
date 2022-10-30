@@ -16,6 +16,7 @@ return (
 
   <Text style={styles.eventDate}>Sexta, 4 de novembro de 2022</Text>
   
+  <View style={styles.form}>
   <TextInput 
     style={styles.input}
     placeholder="Nome do Participante"
@@ -26,7 +27,7 @@ return (
         +
       </Text>
     </TouchableOpacity>
-  
+    </View>
   </View>
 )}
 
