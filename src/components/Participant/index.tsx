@@ -3,14 +3,23 @@ import { View, Text, TouchableOpacity } from "react-native";
 
 import { styles } from "./styles";
 
-export function Participant() {
+type Props = {
+  name: string;
+  onRemove: () => void;
+}
+
+function handleParticipantRemove() {
+console.log('Voce removeu')
+}
+
+export function Participant({name, onRemove}: Props) {
   return(
     <View style={styles.container}>
       <Text style={styles.name}>
-        Tomás Franco Carvalho
+        {name}
         </Text>
 
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={onRemove}>
       <Text style={styles.buttonText}>
         -
       </Text>
