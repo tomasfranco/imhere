@@ -8,10 +8,6 @@ type Props = {
   onRemove: () => void;
 }
 
-function handleParticipantRemove() {
-console.log('Voce removeu')
-}
-
 export function Participant({name, onRemove}: Props) {
   return(
     <View style={styles.container}>
