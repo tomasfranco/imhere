@@ -6,7 +6,9 @@ import { styles } from "./styles"
 import { Participant } from "../../components/Participant";
 
 export function Home(){
-  const [participants, setParticipants] = useState(['João'])
+  const [participants, setParticipants] = useState<string[]>([]);
+  const [participantName, setParticipantName ] = useState('');
+
 
  /* const participants = [
     'Tomás Franco', 'Ingrid Flores', 'João Nunes',
@@ -16,26 +18,25 @@ export function Home(){
   'Janaina Silveira', 'Thaina Pettene', 'Isabella Aires']*/
 
 function handleParticipantAdd() {
-  if(participants.includes("Tomás Franco")){
+  if(participants.includes((participantName))){
     return Alert.alert("Prestadora na Lista", "Esta prestadora já está na lista")
   }
 
-  setParticipants(prevState => [...prevState, 'Ana']);
+  setParticipants(prevState => [...prevState, participantName]);
+  setParticipantName('');
 }
 function handleParticipantRemove(name: string) {
   Alert.alert("Atenção - Remover", `Você tem certeza que deseja remover ${name}?`, [
     {
       text: 'Sim',
-      onPress: () => Alert.alert(`${name} foi removido com Sucesso!`)
+      onPress: () => setParticipants(prevState => prevState.filter(participant => participant !== name))
     },
     {
       text: 'Não',
       style: 'cancel'
     }
   ])
-
-  console.log(`Voce removeu o ${name}`);
-  }
+    }
 
 return (
   <View style={styles.container}>
@@ -49,6 +50,8 @@ return (
     style={styles.input}
     placeholder="Nome do Participante"
     placeholderTextColor="#6B6B6B"
+    onChangeText={setParticipantName}
+    value={participantName}
     />
     <TouchableOpacity style={styles.button} onPress={handleParticipantAdd}>
       <Text style={styles.buttonText}>
