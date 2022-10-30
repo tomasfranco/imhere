@@ -2,6 +2,7 @@ import React from "react"
 import { Text, TextInput, TouchableOpacity, View  } from "react-native"
 import { styles } from "./styles"
 
+import { Participant } from "../../components/Participant";
 
 export function Home(){
 
@@ -12,9 +13,10 @@ function handleParticipantAdd() {
 
 return (
   <View style={styles.container}>
-  <Text style={styles.eventName}>Nome do evento</Text>
+  <Text style={styles.eventName}>Nome do Evento</Text>
+  
 
-  <Text style={styles.eventDate}>Sexta, 4 de novembro de 2022</Text>
+  <Text style={styles.eventDate}>Domingo, 11 de dezembro de 2022</Text>
   
   <View style={styles.form}>
   <TextInput 
@@ -28,6 +30,10 @@ return (
       </Text>
     </TouchableOpacity>
     </View>
+    <Participant />
+    <Participant />
+    <Participant />
+    <Participant />
   </View>
 )}
 
