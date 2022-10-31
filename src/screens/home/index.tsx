@@ -20,8 +20,7 @@ export function Home(){
 function handleParticipantAdd() {
   if(participants.includes((participantName))){
     return Alert.alert("Prestadora na Lista", "Esta prestadora já está na lista")
-  }
-
+  } 
   setParticipants(prevState => [...prevState, participantName]);
   setParticipantName('');
 }
@@ -38,6 +37,8 @@ function handleParticipantRemove(name: string) {
   ])
     }
 
+
+    
 return (
   <View style={styles.container}>
   <Text style={styles.eventName}>Nome do Evento</Text>
